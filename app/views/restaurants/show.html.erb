@@ -1,0 +1,28 @@
+<h1><%= @restaurant.name %></h1>
+
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.phone %></p>
+
+<% @restaurant.reviews.each do |review| %>
+  <%= review.content %>
+  <%= review.rating %>
+<% end %>
+
+<%= form_for([@restaurant, @new_review]) do |f| %>
+  <p>
+    <%= f.label :content %>
+    <%= f.text_field :content, placeholder: 'write a description...' %>
+    <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
+  </p>
+
+  <p>
+    <%= f.label :rating %>
+   <%= f.select :rating, [0,1,2,3,4,5] %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to "Restaurant list", restaurants_path %>

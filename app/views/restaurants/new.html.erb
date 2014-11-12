@@ -1,0 +1,18 @@
+<h1>Création d'un resto</h1>
+
+<%= form_for(@restaurant) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: 'name...' %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.label :phone %>
+  <%= f.text_field :phone %>
+
+  <%= f.label :category %>
+  <%= f.select :category, ["chinese", "italian", "japanese", "french", "belgian"] %>
+
+
+  <%= f.submit %>
+<% end %>
