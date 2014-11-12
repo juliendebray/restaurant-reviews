@@ -17,6 +17,15 @@
 <% end %>
 
 <%= form_for([@restaurant, @new_review], html: {class: "form-inline"}) do |f| %>
+  <% if @new_review.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @new_review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <p>
     <%= f.label :content %>
     <%= f.text_field :content, placeholder: 'write a description...' %>

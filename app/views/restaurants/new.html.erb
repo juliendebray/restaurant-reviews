@@ -10,6 +10,15 @@
 <h1>Création d'un resto</h1>
 
 <%= form_for(@restaurant, html: {class: "form-inline"}) do |f| %>
+  <% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= f.label :name %>
   <%= f.text_field :name, placeholder: 'name...' %>
 

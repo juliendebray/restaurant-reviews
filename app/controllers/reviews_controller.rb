@@ -2,9 +2,13 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.save
-    flash[:notice] = "Review #{@review.id} has been added"
-    redirect_to restaurant_path(@review.restaurant)
+    if @review.save
+      flash[:notice] = "Review #{@review.id} has been added"
+      redirect_to restaurant_path(@review.restaurant)
+    else
+      flash[:notice] = @review.errors.full_messages
+      redirect_to restaurant_path(@review.restaurant) #how to use render method?
+    end
   end
 
   private
