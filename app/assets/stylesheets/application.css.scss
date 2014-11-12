@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.navbar-fixed-bottom {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  bottom: 0px;
+}
+
+body {
+  background-color: lightgrey;
+}

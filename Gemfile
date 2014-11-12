@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 
 gem 'binding_of_caller'
 gem 'better_errors'
+gem 'bootstrap-sass', '~> 3.3.0'
 
 
 # Use ActiveModel has_secure_password

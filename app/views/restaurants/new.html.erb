@@ -1,6 +1,15 @@
+<% content_for(:title) do %>
+ Describe your favorite restaurant
+<% end %>
+<% content_for(:description) do %>
+  Decriver le nom, l'addresse et toutes les infos du resto
+<% end %>
+
+
+
 <h1>Création d'un resto</h1>
 
-<%= form_for(@restaurant) do |f| %>
+<%= form_for(@restaurant, html: {class: "form-inline"}) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name, placeholder: 'name...' %>
 
@@ -14,5 +23,5 @@
   <%= f.select :category, ["chinese", "italian", "japanese", "french", "belgian"] %>
 
 
-  <%= f.submit %>
+  <%= f.submit 'add resto' , class: 'btn btn-danger'%>
 <% end %>

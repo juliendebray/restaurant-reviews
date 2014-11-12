@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.save
+    flash[:notice] = "Review #{@review.id} has been added"
     redirect_to restaurant_path(@review.restaurant)
   end
 

@@ -1,3 +1,11 @@
+<% content_for(:title) do %>
+  <%= @restaurant.name %> is on La Cuillere
+<% end %>
+<% content_for(:description) do %>
+  Voici les infos et les commentaire sur <%= @restaurant.name %>
+<% end %>
+
+
 <h1><%= @restaurant.name %></h1>
 
 <p><%= @restaurant.address %></p>
@@ -8,7 +16,7 @@
   <%= review.rating %>
 <% end %>
 
-<%= form_for([@restaurant, @new_review]) do |f| %>
+<%= form_for([@restaurant, @new_review], html: {class: "form-inline"}) do |f| %>
   <p>
     <%= f.label :content %>
     <%= f.text_field :content, placeholder: 'write a description...' %>
@@ -21,7 +29,7 @@
   </p>
 
   <p>
-    <%= f.submit %>
+    <%= f.submit 'add resto' , class: 'btn btn-info'%>
   </p>
 <% end %>
 
